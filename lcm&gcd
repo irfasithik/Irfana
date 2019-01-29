@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int findLcm(int,int);
+int findGcd(int,int);
+
+int main() {
+	
+
+	// your code goes here
+	int n1,n2;
+	scanf("%d%d",&n1,&n2);
+	int k=findLcm(n1,n2);
+	printf("%d",k);
+	return 0;
+    }
+
+	int findGcd(int a1,int b1)
+	{
+		if(a1==b1)
+		{
+			return a1;
+		}
+		else if((a1==0)||(b1==0))
+			return 0;
+		else if(a1>b1)
+		{
+			return findGcd(a1-b1,b1);
+		}
+		 else
+			return findGcd(a1,b1-a1);
+	}
+	
+	int findLcm(int a,int b)
+    {
+	    int d=(a*b)/findGcd(a,b);
+	    return d;
+    }
